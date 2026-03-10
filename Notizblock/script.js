@@ -1,10 +1,19 @@
-// show notes
 
-let notesTitle = ["BA", "Aufgabe"]
-let notes = ["banana", "apple", "orange"];
+let notes = [];
 
-let trashNotes = [];
+let trashNotes = []
 
+// START
+function init() {
+    getNotesFromLocalStorage();
+    renderNotes();
+    getTrashNotesFromLocalStorage();
+    renderTrashNotes();
+}
+
+
+// render Notes to HTML
+// 1. NOTES
 function renderNotes() {
     let contentRef = document.getElementById("content");
     contentRef.innerHTML = "";
@@ -15,9 +24,10 @@ function renderNotes() {
 }
 
 function getNoteTemplate(indexNote) {
-    return `<p>+ ${notes[indexNote]} <button onclick="deleteNote(${indexNote})">Löschen</button> </p> `
+    return `<p>+ ${notes[indexNote]} <button onclick="moveToTrash(${indexNote})">Papierkorb</button> </p> `
 }
 
+// 2. TRASH NOTES
 function renderTrashNotes() {
     let trashContentRef = document.getElementById("trash_content");
     trashContentRef.innerHTML = "";
@@ -32,32 +42,31 @@ function getTrashNoteTemplate(indexTrashNote) {
 }
 
 
-
 // Add Notes
-
 function addNote() {
     let noteInputRef = document.getElementById("note_input");
-    let noteInput = noteInputRef.value;
 
-    notes.push(noteInput);
-
+    if(noteInputRef.value != ""){
+        notes.push(noteInputRef.value);
+    }
+    saveNotesToLocalStorage();
     renderNotes();
-
-    noteInputRef = ""
+    noteInputRef.value = ""
 }
 
 
-
-
-// Notizen löschen
-
+// NOTE TO ARCHIVE
 function moveToTrash(indexNote) {
    let trashNote = notes.splice(indexNote, 1);
    trashNotes.push(trashNote);
+   saveNotesToLocalStorage();
+   saveTrashNotesToLocalStorage();
    renderNotes();
    renderTrashNotes();
 }
 
+
+// Delete Notes
 function deleteNote(indexNote) {
    let trashNote = trashNotes.splice(indexNote, 1);
    renderNotes();
@@ -65,4 +74,37 @@ function deleteNote(indexNote) {
 }
 
 
-// Notizen archivieren 
+// SAVE NOTES 
+// 1. NOTES
+function saveNotesToLocalStorage() {
+    localStorage.setItem("notes", JSON.stringify(notes))
+}
+
+function getNotesFromLocalStorage() {
+    let myLocalStorage = JSON.parse(localStorage.getItem("notes"));
+    if(myLocalStorage === null){
+        notes 
+    }
+    else {
+        notes = myLocalStorage;
+    }
+} 
+
+let myLocalStorage = JSON.parse(localStorage.getItem("notes"));
+let myLocalTrashStorage = JSON.parse(localStorage.getItem("trashNotes"));
+
+
+
+// 2. TRASH NOTES
+ function saveTrashNotesToLocalStorage() {
+    localStorage.setItem("trashNotes", JSON.stringify(trashNotes))
+}
+
+function getTrashNotesFromLocalStorage() {
+    if(myLocalTrashStorage === null){
+        trashNotes 
+    }
+    else {
+        trashNotes = myLocalTrashStorage;
+    }
+} 
