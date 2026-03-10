@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fotogram</title>
+
+    <script defer src="./script.js"></script>
+
+
+    <link rel="stylesheet" href="./style.css">
+
+    <link rel="icon" type="image/x-icon" href="./img/icons/logo.svg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+
+</head>
+
+
+<body onload="renderImages()">
+
+    <header>
+        <section class="header_content">
+
+        <!-- vllt als Link -->
+        <img src="./img/icons/logo_text.svg" alt="Logo Fotogram">
+
+
+        </section>
+    </header>
+
+    <main>
+        <section class="main_content">
+
+            <h1>Your personal photo album</h1>
+
+            <section id="image_overview_id" class="test_img img_overview">
+
+            </section>
+
+            <dialog class="dialog_image_view_style" id="image_view_dialog" closedby="any">
+
+                <header class="header_dialog">
+                    <h2 id="dialog_image_name"></h2>
+                    <button onclick="closeImageDialog()"> <img src="./img/gallery/buttons/close_btn.svg"> </button>
+                </header>
+
+                <main class="main_dialog" id="image_open_in_dialog">
+                    
+                </main>
+
+                <footer class="footer_dialog">
+                    <button id="btn_prev" onclick="prevImage()" class="btn_arrow"> <img class="rotate_btn" src="./img/gallery/buttons/arrow.svg"> </button>
+                    <p id="image_counter"></p>
+                    <button id="btn_next" onclick="nextImage()" class="btn_arrow"> <img src="./img/gallery/buttons/arrow.svg"> </button>
+                </footer>
+            
+            </dialog>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <section class="footer_content">
+            <img src="./img/icons/footer_icon.svg" alt="Logo Developer Akademie"> 
+
+        </section>
+
+    </footer>
+
+</body>
+
+
+</html>
