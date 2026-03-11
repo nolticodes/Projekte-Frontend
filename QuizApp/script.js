@@ -89,5 +89,6 @@ function clickAnswer(i) {
         document.getElementById(idOfRightAnswer).parentNode.classList.add("bg-success");
     }
     document.getElementById("netx_button_id").disabled = false; 
+    
 }
 
