@@ -1,0 +1,8 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100dvh;
+    background-color: rgb(254 250 240) !important;
+}
