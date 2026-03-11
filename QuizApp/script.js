@@ -83,10 +83,11 @@ function clickAnswer(i) {
     if(answerSelected == question["right_answer"]){
         console.log("richtig");
         document.getElementById(i).parentNode.classList.add("bg-success");
-
     } else {
         console.log("falsch")
         document.getElementById(i).parentNode.classList.add("bg-danger");
         document.getElementById(idOfRightAnswer).parentNode.classList.add("bg-success");
     }
+    document.getElementById("netx_button_id").disabled = false; 
 }
+
