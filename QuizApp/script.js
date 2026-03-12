@@ -49,11 +49,10 @@ function init() {
     document.getElementById("questions_counter_all").innerHTML = questions.length;
     showQuestion();
     showAnswers();
-    
+
 }
 
 function showQuestion() {
-
     if (currentQuestion >= questions.length) {
         document.getElementById("end_quiz_body").style = ""
         document.getElementById("quiz_body").style = "display: none"
