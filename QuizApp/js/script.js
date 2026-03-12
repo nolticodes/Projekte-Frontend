@@ -92,5 +92,11 @@ function startNewGame() {
 }
 
 
+function abortGameAndLoadStartscreen() {
+    document.getElementById("quiz_body").style = "display: none";
+    document.getElementById("select_quiz_screen_id").style = "";
+    questionsRightAnswered = 0;
+}
+
 
 
