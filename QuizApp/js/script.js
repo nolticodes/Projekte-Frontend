@@ -1,9 +1,8 @@
 
 let currentQuestion = 0;
 let questionsRightAnswered = 0;
-let successSound = new Audio("audio/success.mp3");
-let failSound = new Audio("audio/fail.mp3");
-
+let successSound = new Audio("./assets/sounds/success.mp3");
+let failSound = new Audio("./assets/sounds/fail.mp3");
 let questions = [
     {
         "question": "Wie ist der Vorname von Kanye West?",
@@ -95,11 +94,11 @@ function clickAnswer(i) {
     let idOfRightAnswer = `answer_${question["right_answer"]}`;
 
     if(answerSelected == question["right_answer"]){
-        successSound.play
+        successSound.play()
         document.getElementById(i).parentNode.classList.add("bg-success");
         questionsRightAnswered = questionsRightAnswered +1
     } else {
-        failSound.play
+        failSound.play()
         document.getElementById(i).parentNode.classList.add("bg-danger");
         document.getElementById(idOfRightAnswer).parentNode.classList.add("bg-success");
     }

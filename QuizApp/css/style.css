@@ -23,7 +23,16 @@ main {
 }
 
 .quiz_card {
-    width: 30rem;
+    width: 60rem;
+    height: 40rem !important;
+    overflow: hidden;
+    border: none !important;
+    box-shadow: 0px 0px 15px 1px gray;
+    border-radius: 16px !important; 
+    display: flex !important;
+    /* background-image: url(./assets/img/ye.png);
+    background-size: cover;
+    background-position: bottom; */
 }
 
 .card_answer_style:hover {
@@ -36,5 +45,5 @@ main {
 }
 
 .progress_bar {
-    margin: 16px;
+    border-radius: 0 !important;
 }
