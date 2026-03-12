@@ -1,3 +1,4 @@
+
 let quiz_navbar_text_1 = [
     {
         "question": "Wie ist der Vorname von Kanye West?",
@@ -169,3 +170,10 @@ let quiz_navbar_text_4 = [
         "right_answer": 3
     },
 ];
+
+const allQuizData = {
+    quiz_navbar_text_1: quiz_navbar_text_1,
+    quiz_navbar_text_2: quiz_navbar_text_2,
+    quiz_navbar_text_3: quiz_navbar_text_3,
+    quiz_navbar_text_4: quiz_navbar_text_4
+};

@@ -1,5 +1,5 @@
 
-let currentQuestion = 0;
+
 let questionsRightAnswered = 0;
 let successSound = new Audio("./assets/sounds/success.mp3");
 let failSound = new Audio("./assets/sounds/fail.mp3");
@@ -7,22 +7,22 @@ let failSound = new Audio("./assets/sounds/fail.mp3");
 
 
 function init() {
-    document.getElementById("questions_counter_all").innerHTML = quiz_navbar_text_1.length;
+    document.getElementById("questions_counter_all").innerHTML = selectedQuiz.length;
     showQuestion();
     showAnswers();
 }
 
 // function showQuestion() {
-//     if (currentQuestion >= quiz_navbar_text_1.length) {
+//     if (currentQuestion >= selectedQuiz.length) {
 //         document.getElementById("end_quiz_body").style = ""
 //         document.getElementById("quiz_body").style = "display: none"
-//         document.getElementById("questions_counter_all_score").innerHTML = quiz_navbar_text_1.length;
+//         document.getElementById("questions_counter_all_score").innerHTML = selectedQuiz.length;
 //         document.getElementById("amount_correct_answer").innerHTML = questionsRightAnswered;
 
 //     } else {
-//         let question = quiz_navbar_text_1[currentQuestion];
+//         let question = selectedQuiz[currentQuestion];
 //         let questionTextRef = document.getElementById("questionText");
-//         let progressInPercent = ((currentQuestion + 1) / quiz_navbar_text_1.length) * 100;
+//         let progressInPercent = ((currentQuestion + 1) / selectedQuiz.length) * 100;
 
 //         document.getElementById("progress_bar_id").style = `width: ${progressInPercent}%;`;         
 //         document.getElementById("progress_bar_id").innerHTML = `${progressInPercent} %`; 
@@ -32,10 +32,10 @@ function init() {
 // }
 
 function showAnswers() {
-    let answerOne = quiz_navbar_text_1[currentQuestion];
-    let answerTwo = quiz_navbar_text_1[currentQuestion];
-    let answerThree = quiz_navbar_text_1[currentQuestion];
-    let answerFour = quiz_navbar_text_1[currentQuestion];
+    let answerOne = selectedQuiz[currentQuestion];
+    let answerTwo = selectedQuiz[currentQuestion];
+    let answerThree = selectedQuiz[currentQuestion];
+    let answerFour = selectedQuiz[currentQuestion];
     let answerOneRef = document.getElementById("answer_1");
     let answerTwoRef = document.getElementById("answer_2");
     let answerThreeRef = document.getElementById("answer_3");
@@ -48,7 +48,7 @@ function showAnswers() {
 }
 
 function clickAnswer(i) {
-    let question = quiz_navbar_text_1[currentQuestion];
+    let question = selectedQuiz[currentQuestion];
     let answerSelected = i.slice(-1);
     let idOfRightAnswer = `answer_${question["right_answer"]}`;
 

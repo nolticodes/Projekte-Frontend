@@ -18,7 +18,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
-    <script defer src="./js/script_questions.js"></script>    
+    <script defer src="./js/script_questions.js"></script>
     <script defer src="./js/script.js"></script>
     <script defer src="./js/script_pick_quiz.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
@@ -27,7 +27,7 @@
 
 </head>
 
-<body onload="init()">
+<body>
 
     <header>
         <!-- PROGRESSBAR -->
@@ -44,7 +44,7 @@
         <div class="card quiz_card">
 
             <!-- QUIZ START SCREEN -->
-            <section class="select_quiz_style">
+            <section class="select_quiz_style" id="select_quiz_screen_id">
 
                 <div id="select_quiz_id" class="select_quiz_navbar_style">
                     <img src="./assets/img/icons/logo.png">
@@ -59,7 +59,8 @@
                 <div class="select_quiz_content">
                     <h2>Wähle ein Quiz!</h2>
 
-                    <button onclick="loadAndStartQuiz()" id="button_start_quiz_id" disabled type="button" class="btn btn-secondary btn-lg">Start Quiz</button>
+                    <button onclick="loadAndStartQuiz()" id="button_start_quiz_id" disabled type="button"
+                        class="btn btn-secondary btn-lg">Start Quiz</button>
                 </div>
 
             </section>
@@ -80,38 +81,49 @@
             <!-- QUESTIONS -->
             <div class="card-body" id="quiz_body" style="display: none;">
 
-                <h5 class="card-title" id="questionText">Frage</h5>
+                
 
-                <div class="card mb-2 card_answer_style" onclick="clickAnswer('answer_1')">
-                    <div class="card-body" id="answer_1">
-                        Antwort
+                <section class="questions_style">
+                    <h5 class="card-title" id="questionText">Frage</h5>
+                    
+                    <div class="card mb-2 card_answer_style" onclick="clickAnswer('answer_1')">
+                        <div class="card-body" id="answer_1">
+                            Antwort
+                        </div>
                     </div>
-                </div>
 
-                <div class="card mb-2 card_answer_style" onclick="clickAnswer('answer_2')">
-                    <div class="card-body" id="answer_2">
-                        Antwort
+                    <div class="card mb-2 card_answer_style" onclick="clickAnswer('answer_2')">
+                        <div class="card-body" id="answer_2">
+                            Antwort
+                        </div>
                     </div>
-                </div>
 
-                <div class="card mb-2 card_answer_style" onclick="clickAnswer('answer_3')">
-                    <div class="card-body" id="answer_3">
-                        Antwort
+                    <div class="card mb-2 card_answer_style" onclick="clickAnswer('answer_3')">
+                        <div class="card-body" id="answer_3">
+                            Antwort
+                        </div>
                     </div>
-                </div>
 
-                <div class="card mb-2 card_answer_style" onclick="clickAnswer('answer_4')">
-                    <div class="card-body" id="answer_4">
-                        Antwort
+                    <div class="card mb-2 card_answer_style" onclick="clickAnswer('answer_4')">
+                        <div class="card-body" id="answer_4">
+                            Antwort
+                        </div>
                     </div>
-                </div>
+                </section>
 
                 <div class="question_footer">
                     <div>
                         Frage <b id="questions_counter_current">1</b> von <b id="questions_counter_all">5</b>
                     </div>
-                    <button disabled id="next_button_id" type="button" class="btn btn-dark"
-                        onclick="clickNextQuestionBtn()">Nächste Frage</button>
+
+                    <div class="footer_buttons_style">
+                        <button id="abort_button_id" type="button" class="btn btn-dark"
+                            onclick="abortGameAndLoadStartscreen()">Spiel abbrechen</button>
+
+                        <button disabled id="next_button_id" type="button" class="btn btn-dark"
+                            onclick="clickNextQuestionBtn()">Nächste Frage</button>
+                    </div>
+
                 </div>
 
             </div>
