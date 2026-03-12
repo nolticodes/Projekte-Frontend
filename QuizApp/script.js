@@ -49,7 +49,6 @@ function init() {
     document.getElementById("questions_counter_all").innerHTML = questions.length;
     showQuestion();
     showAnswers();
-
 }
 
 function showQuestion() {
